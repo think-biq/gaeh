@@ -38,3 +38,5 @@ def extract_payload_from_url(google_authenticator_export_url):
 
     data = base64.b64decode(qs['data'][0])
     payload = MigrationPayload.FromString(data)
+
+    return payload
