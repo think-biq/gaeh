@@ -40,7 +40,7 @@ else
 endif
 
 CMD_ACTIVATE_VENV = . "$(PROJECT_DIR)/$(VENV_BIN_DIR)/activate"
-CMD_DEACTIVATE_VENV = declare -f deactivate > /dev/null && deactivate
+CMD_DEACTIVATE_VENV = (declare -f deactivate > /dev/null && deactivate) || true
 
 all: prepare build-wheel install-wheel
 
