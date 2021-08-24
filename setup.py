@@ -38,12 +38,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     package_dir = {
         'gaeh': 'src', 
-        'gaeh.exporters': 'src/exporters',
         'gaeh.protobuf_migration': 'src/protobuf_migration',
     },
     packages=[
         'gaeh',
-        'gaeh.exporters',
         'gaeh.protobuf_migration'
     ],
     include_package_data=True,    
