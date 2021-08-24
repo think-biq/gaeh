@@ -27,7 +27,7 @@ def export_otp_accounts(google_authenticator_export_url):
     export_data['accounts'] = []
     for params in payload.otp_parameters:
         entry = {}
-        entry['key'] = base64.b32encode(params.secret).encode('utf8')
+        entry['key'] = base64.b32encode(params.secret).decode('utf8')
         entry['name'] = params.name
         entry['issuer'] = params.issuer
         entry['algorithm'] = Algorithm.Name(params.algorithm)
