@@ -17,7 +17,7 @@ ifeq '$(findstring ;,$(PATH))' ';'
 	OS = "win"
 	VENV_BIN_DIR = Scripts
 	STD_FLAG = "/std:c++17 /EHa"
-	EXE_NAME = justonce
+	EXE_NAME = gaeh
 	BUILD_PATH_RELEASE = "${BUILD_PATH}/Release"
 	EXE_PATH_RELEASE = "${BUILD_PATH_RELEASE}/${EXE_NAME}"
 	BUILD_PATH_DEBUG = "${BUILD_PATH}/Debug"
@@ -29,7 +29,7 @@ else
 	OS = "unix-y"
 	VENV_BIN_DIR = bin
 	STD_FLAG = "--std=c++17"
-	EXE_NAME = justonce
+	EXE_NAME = gaeh
 	BUILD_PATH_RELEASE = "${BUILD_PATH}"
 	EXE_PATH_RELEASE = "${BUILD_PATH_RELEASE}/${EXE_NAME}"
 	BUILD_PATH_DEBUG = "${BUILD_PATH}"
