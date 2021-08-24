@@ -40,21 +40,25 @@ else
 endif
 
 CMD_ACTIVATE_VENV = . "$(PROJECT_DIR)/$(VENV_BIN_DIR)/activate"
+CMD_DEACTIVATE_VENV = declare -f deactivate > /dev/null && deactivate
 
 all: prepare build-wheel install-wheel
 
 clean:
+	$(CMD_DEACTIVATE_VENV)
 	rm -rf pyvenv.cfg build dist
 
 prepare:
+	$(CMD_DEACTIVATE_VENV)
 	python3 -m venv .
 	$(CMD_ACTIVATE_VENV); pip install -r requirements.txt
 
 build-wheel:
 	$(CMD_ACTIVATE_VENV); python3 setup.py bdist_wheel
 
-install-wheel:
-	$(CMD_ACTIVATE_VENV); python3 -m pip install --force-reinstall --no-index --find-links=dist gaeh
+install-wheel: build-wheel
+	$(CMD_ACTIVATE_VENV); python3 -m pip install gaeh \
+		--force-reinstall --no-index --find-links="$(PROJECT_DIR)/dist"
 
-start-venv-session:
+venv-session:
 	$(CMD_ACTIVATE_VENV); python3
