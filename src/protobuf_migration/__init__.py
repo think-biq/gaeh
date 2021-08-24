@@ -9,15 +9,14 @@
     https://think-biq.com
 '''
 
-__all__ = ['MigrationPayload', 'Algorithm', 'DigitCount', 'OtpType', 'DigitCount']
+__all__ = [\
+    'extract_payload_from_url', \
+    'MigrationPayload', 'Algorithm', 'DigitCount', 'OtpType', 'DigitCount'\
+]
 
 
 from .OtpMigration_pb2 import \
-    MigrationPayload, \
-    Algorithm, \
-    DigitCount, \
-    OtpType, \
-    DigitCount
+    MigrationPayload, Algorithm, DigitCount, OtpType, DigitCount
 from urllib.parse import urlparse, parse_qs
 import sys
 import base64
